@@ -1,7 +1,10 @@
 <div class="App">
     <h1>Monsters Rolodex</h1>
     <div class="card-list">
-       <app-card-list></app-card-list>
+       <app-card-list 
+       *ngFor="let monsterEl of monsters"
+        [monster]="monstersEl">
+      </app-card-list>
     </div>
  </div>
 
