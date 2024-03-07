@@ -24,6 +24,7 @@ export class AppComponent  implements OnInit{
     return this.http.get("https://jsonplaceholder.typicode.com/users")
      .subscribe({
       next:(users:Monster[])=>{
+        console.log("users",users)
         this.isFetching =false;
         this.monsters=users;
       },
