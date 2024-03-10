@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Monster } from './model/monster.model';
 import { Subscription } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements OnInit{
+export class AppComponent  implements OnInit,OnDestroy{
   title = 'monster-app-property-bind-event';
   isFetching:boolean=false;
   monsters:Monster[]=[];
@@ -35,5 +35,8 @@ export class AppComponent  implements OnInit{
      }
      
      )
+   }
+   ngOnDestroy(): void {
+       this.subscription.unsubscribe();
    }
 }
